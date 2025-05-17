@@ -1,6 +1,8 @@
 package ds;
 
-public class Gondaad{
+import java.util.Stack;
+
+public class FlattenBinaryTree {
     public static void main(String[] args) {
      /*
               1
@@ -15,8 +17,53 @@ public class Gondaad{
         root.left.left = new Node(3);
         root.left.right = new Node(4);
         root.right.right= new Node(6);
-        flatten(root);
+
+        //flatten using recurresion
+        //flatten(root);
+        //flatten using stack
+
         printflattentree(root);
+        flattenWithStack( root);
+        printflattentree(root);
+    }
+    static void flattenWithStack(Node root){
+
+        /*    1
+             / \
+            2   5
+           / \   \
+          3   4   6  */
+
+        if(null==root) return;
+
+        Stack<Node> nodeStack = new Stack<>();
+        nodeStack.push(root);
+
+        while(!nodeStack.isEmpty())
+        {
+            System.out.println("###  Iteration start  ####");
+
+            Node current = nodeStack.pop();
+
+            if(current.right!=null){
+                nodeStack.push(current.right);
+            }
+
+            if(current.left!=null){
+                nodeStack.push(current.left);
+            }
+
+            if(!nodeStack.isEmpty()){
+                current.right=nodeStack.peek();
+            }
+
+            current.left=null;
+
+            printflattentree(root);
+            System.out.println("End ");
+        }
+
+
     }
     static void flatten(Node root){
 
@@ -45,7 +92,9 @@ public class Gondaad{
         // attach original right sub tree
 
         //print flatten tree
-
+      //  System.out.println("#######Round#########");
+      //  printflattentree(root);
+       // System.out.println("#######Round#########");
     }
 
     static void printflattentree(Node root){
