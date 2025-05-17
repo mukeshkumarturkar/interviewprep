@@ -4,6 +4,8 @@ import java.util.*;
 
 public class TimeComplexityAnalysis {
 
+
+    
     public static void main(String[] args) {
         // Time limits in microseconds
         long oneSecond = 1_000_000;
