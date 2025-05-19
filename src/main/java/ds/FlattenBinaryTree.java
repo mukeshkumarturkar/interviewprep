@@ -22,10 +22,12 @@ public class FlattenBinaryTree {
         //flatten(root);
         //flatten using stack
 
+        /*flatten binary tree using stack*/
         printflattentree(root);
         flattenWithStack( root);
         printflattentree(root);
     }
+
     static void flattenWithStack(Node root){
 
         /*    1
